@@ -1,0 +1,14 @@
+samples: "samples.tsv"
+units: "units.tsv"
+
+reference:
+  fasta: "reference/WASH7P.fna"
+
+threads:
+  "1": 1
+  "2": 2
+
+tools:
+  bwamem2: "docker://marrip/bwa-mem2:2.2.1"
+  common: "docker://marrip/common:1.1.0"
+  r: "docker://marrip/r-base:4.0.3"
