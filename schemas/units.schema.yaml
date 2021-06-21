@@ -1,0 +1,21 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+description: row represents one dataset
+properties:
+  sample:
+    type: string
+    description: sample id
+  unit:
+    type: string
+    enum: ["wes", "wgs", "wgs-mgi"]
+    description: type of dataset
+  fq1:
+    type: string
+    description: absolut path to R1 fastq file
+  fq2:
+    type: string
+    description: absolut path to R2 fastq file
+required:
+  - sample
+  - unit
+  - fq1
+  - fq2
