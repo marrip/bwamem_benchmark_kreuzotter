@@ -19,6 +19,7 @@ get_data <- function(input){
   bm_data <- separate(bm_data, "file", c("folder", "unit", "tool", "sample"), sep="/")
   bm_data$sample <- gsub(".tsv", "", bm_data$sample)
   bm_data <- separate(bm_data, "sample", c("sample", "threads"), sep="_")
+  bm_data$threads <- as.numeric(bm_data$threads)
   return(bm_data)
 }
 
