@@ -14,6 +14,9 @@ rule bwa_mem2:
     container:
         config["tools"]["bwamem2"]
     threads: get_threads
+    resources:
+        cpus=get_threads,
+        time_min="24:00:00",
     message:
         "{rule}: Align {wildcards.sample} with {wildcards.threads} threads and sort records"
     shell:
