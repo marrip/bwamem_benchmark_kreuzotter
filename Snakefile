@@ -1,4 +1,5 @@
 include: "rules/common.smk"
+include: "rules/bam_diff.smk"
 include: "rules/bm_plot.smk"
 include: "rules/bwa.smk"
 include: "rules/bwa_mem2.smk"

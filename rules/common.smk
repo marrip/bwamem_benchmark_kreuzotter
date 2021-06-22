@@ -60,4 +60,9 @@ def compile_output_list():
     return expand(
         "analysis_output/{unit}/plot.pdf",
         unit = units["unit"],
+        ) + expand(
+        "analysis_output/{unit}/bam_diff/{sample}_{threads}.diff",
+        unit = units["unit"],
+        sample = samples.index,
+        threads = config["threads"],
         )
