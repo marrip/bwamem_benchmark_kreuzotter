@@ -7,7 +7,7 @@ rule bwa:
     log:
         "analysis_output/{unit}/bwa/{sample}_{threads}.log",
     benchmark:
-        "analysis_output/{unit}/bwa/{sample}_{threads}.tsv",
+        "analysis_output/{unit}/bwa/{sample}_{threads}.tsv"
     params:
         K=10000000,
         R="'@RG\\tID:{sample}_rg1\\tLB:lib1\\tPL:bar\\tSM:{sample}\\tPU:{sample}_rg1'",

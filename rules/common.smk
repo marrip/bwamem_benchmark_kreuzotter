@@ -36,33 +36,28 @@ wildcard_constraints:
 
 
 def get_fastq(wildcards):
-    fastqs = units.loc[
-        (wildcards.sample, wildcards.unit), ["fq1", "fq2"]
-    ].dropna()
+    fastqs = units.loc[(wildcards.sample, wildcards.unit), ["fq1", "fq2"]].dropna()
     return {"fwd": fastqs.fq1, "rev": fastqs.fq2}
 
 
 def get_threads(wildcards):
-  return config["threads"][wildcards.threads]
+    return config["threads"][wildcards.threads]
 
 
 def get_bm_files():
     return expand(
         "analysis_output/{unit}/{tool}/{sample}_{threads}.tsv",
-        unit = units["unit"],
-        tool = ["bwa", "bwa-mem2"],
-        sample = samples.index,
-        threads = config["threads"],
-        )
+        unit=units["unit"],
+        tool=["bwa", "bwa-mem2"],
+        sample=samples.index,
+        threads=config["threads"],
+    )
 
 
 def compile_output_list():
-    return expand(
-        "analysis_output/{unit}/plot.pdf",
-        unit = units["unit"],
-        ) + expand(
+    return expand("analysis_output/{unit}/plot.pdf", unit=units["unit"],) + expand(
         "analysis_output/{unit}/bam_diff/{sample}_{threads}.diff",
-        unit = units["unit"],
-        sample = samples.index,
-        threads = config["threads"],
-        )
+        unit=units["unit"],
+        sample=samples.index,
+        threads=config["threads"],
+    )

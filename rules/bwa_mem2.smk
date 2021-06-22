@@ -7,7 +7,7 @@ rule bwa_mem2:
     log:
         "analysis_output/{unit}/bwa-mem2/{sample}_{threads}.log",
     benchmark:
-        "analysis_output/{unit}/bwa-mem2/{sample}_{threads}.tsv",
+        "analysis_output/{unit}/bwa-mem2/{sample}_{threads}.tsv"
     params:
         K=10000000,
         R="'@RG\\tID:{sample}_rg1\\tLB:lib1\\tPL:bar\\tSM:{sample}\\tPU:{sample}_rg1'",
@@ -25,6 +25,7 @@ rule bwa_mem2:
         "{input.fwd} "
         "{input.rev} | "
         "samtools sort -o {output} -) &> {log}"
+
 
 rule index_bwa_mem2:
     input:
