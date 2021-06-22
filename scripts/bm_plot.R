@@ -24,8 +24,10 @@ get_data <- function(input){
 
 plot_data <- function(data, output){
   ggplot(data, aes(x=threads, y=s, color=tool)) +
+    geom_point() +
     facet_grid(~sample) +
-    geom_point()
+    labs(x="thread count", y="time [s]") +
+    expand_limits(x=0, y=0)
   
   ggsave(snakemake@output[[1]])
 }
