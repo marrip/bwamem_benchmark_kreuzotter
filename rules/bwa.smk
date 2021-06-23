@@ -16,7 +16,6 @@ rule bwa:
     threads: get_threads
     resources:
         cpus=get_threads,
-        time_min=1440,
     message:
         "{rule}: Align {wildcards.sample} with {wildcards.threads} threads and sort records"
     shell:
