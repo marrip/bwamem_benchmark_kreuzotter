@@ -16,6 +16,7 @@ rule bwa_mem2:
     threads: get_threads
     resources:
         cpus=get_threads,
+        time="24:00",
     message:
         "{rule}: Align {wildcards.sample} with {wildcards.threads} threads and sort records"
     shell:
